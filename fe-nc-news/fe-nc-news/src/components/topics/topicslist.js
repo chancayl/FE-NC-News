@@ -12,7 +12,7 @@ class Topicslist extends React.Component {
 
   componentDidMount() {
     api.getTopics().then(topics => {
-        this.setState({ topics: topics, isLoading: false })
+      this.setState({ topics: topics, isLoading: false });
     });
   }
 
@@ -29,7 +29,7 @@ class Topicslist extends React.Component {
 
         <h3>
           {topics.map(topic => {
-            return <Topicscard key={topic.slug} topic={topic} />;
+            return (<Topicscard key={topic.slug} topic={topic} />);
           })}
         </h3>
       </div>
