@@ -6,20 +6,45 @@ class Singlearticle extends React.Component {
   state = {
     isLoading: true,
     article: null,
-    article_id: null
+    article_id: this.props.article_id
   };
 
   componentDidMount() {
-    console.log(this.props);
-    api.getArticleById(2).then(article => {
-      this.setState({ article: article });
+    const { article_id } = this.props;
+    api.getArticleById(article_id).then(article => {
+      this.setState({
+        article: article,
+        isLoading: false
+      });
     });
   }
 
   render() {
-    console.log(this.props);
-
-    return <p>TESTING</p>;
+    const { article, isLoading } = this.state;
+    if (isLoading) {
+      return <p>Loading...</p>;
+    } else {
+      const {
+        title,
+        body,
+        author,
+        topic,
+        comment_count,
+        votes,
+        created_at,
+        article_id
+      } = this.state.article;
+      return (
+        <main className="Singlearticle">
+          <h4>{title}</h4>
+          <p>Author: {author}</p>
+          <p>Topic: {topic.toUpperCase()}</p>
+          <p></p>
+          <p className="Selectedsinglearticle">Article: {body}</p>
+          <p>Total comments: {comment_count}</p>
+        </main>
+      );
+    }
   }
 }
 

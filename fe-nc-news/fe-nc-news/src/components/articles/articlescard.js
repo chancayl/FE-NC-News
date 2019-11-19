@@ -1,7 +1,7 @@
 import React from "react";
 import Singlearticle from "../singlearticle/articleid";
 
-import * as api from "../../api";
+// import * as api from "../../api";
 
 import { Router } from "@reach/router";
 import { Link } from "@reach/router";
@@ -11,7 +11,7 @@ function Articlescard(props) {
 
   const { title, topic, article_id } = props.article;
   const { selectedTopic } = props;
-  const selectedArticleid = `/articles/${article_id}`;
+  const selectedArticleid = `/articles/article/${article_id}`;
 
   return (
     <>

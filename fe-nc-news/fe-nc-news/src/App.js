@@ -32,7 +32,7 @@ function App() {
         <Router>
           <Topicslist path="/" />
           <Articleslist path="/articles/:topics_slug" />
-          <Singlearticle path="/articles/:article_id" />
+          <Singlearticle path="/articles/article/:article_id" />
         </Router>
       </div>
     </div>

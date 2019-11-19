@@ -21,7 +21,9 @@ export const getArticles = async (topic, sort) => {
   return data.articles;
 };
 
-export const getArticleById = async id => {
-    const {data} =  await axios.get(`${apiURL}/articles/${id}`)
-    return data.article
-}
+export const getArticleById = id => {
+  return axios.get(`${apiURL}/articles/${id}`).then(({ data }) => {
+    console.log(data.article);
+    return data.article;
+  });
+};
