@@ -33,7 +33,6 @@ class Articleslist extends React.Component {
 
   handleSortby = event => {
     event.preventDefault();
-    console.log(event.target.value, "EVENT");
     this.setState({ sort_by: event.target.value });
   };
 

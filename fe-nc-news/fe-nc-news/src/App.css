@@ -1,18 +1,51 @@
 .App {
   text-align: center;
 }
-/* .App-header {  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+
+.App-header {
+  margin: 0;
+}
+.container h1 {
+  color: #833939;
+  font-family: "Quicksand";
+  font-size: 50px;
+}
+
+.Topicslist h2 {
+  color: black;
+  font-family: "Quicksand";
+  font-size: 20px;
+}
+
+.Topicslist p {
+  color: black;
+  font-family: "Quicksand";
+  margin: 10%;
+}
+
+.Topicslist ul {
+  padding: 0;
+}
+
+.Topicslist li {
+  justify-content: center;
   align-items: center;
-  font-size: calc(10px + 2vmin);
-  color: darkred;
-  
+  margin: 5%;
+  text-align: center;
+  font-size: 15px;
+  color: rgb(66, 56, 56);
+  transition: all 0.45s;
+}
+/* 
+.Topicslist li:hover {
+  animation: line 1s;
+  color: #d94f5c;
 } */
 
-/* .App-hompage{
-  display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin);
-  color: darkred;
+/* .Topicslist li:last-child {
+  border: none;
+} */
+/* .Topicslist li:hover {
+  font-size: 30px;
+  background: #f6f6f6;
 } */

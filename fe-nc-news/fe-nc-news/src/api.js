@@ -23,7 +23,34 @@ export const getArticles = async (topic, sort) => {
 
 export const getArticleById = id => {
   return axios.get(`${apiURL}/articles/${id}`).then(({ data }) => {
-    console.log(data.article);
     return data.article;
   });
+};
+
+export const voteforArticle = (article_id, num) => {
+  return axios
+    .patch(`${apiURL}/articles/${article_id}`, {
+      inc_votes: num
+    })
+    .then(({ data }) => {
+      return data.article;
+    });
+};
+
+export const fetchCommentsByArticleId = article_id => {
+  return axios
+    .get(`${apiURL}/articles/${article_id}/comments`)
+    .then(({ data }) => {
+      return data.comments;
+    });
+};
+
+export const voteforComment = (comment_id, num) => {
+  return axios
+    .patch(`${apiURL}/comments/${comment_id}`, {
+      inc_votes: num
+    })
+    .then(({ data }) => {
+      return data.comment;
+    });
 };

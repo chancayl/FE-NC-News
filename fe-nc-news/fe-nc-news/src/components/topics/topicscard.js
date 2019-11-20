@@ -9,20 +9,19 @@ class Topicscard extends React.Component {
   state = {
     articles: [],
     selectedTopic: "",
-    isLoading: true,
+    isLoading: true
   };
 
   componentDidMount() {
-    const {slug} = this.props.topic
+    const { slug } = this.props.topic;
     api.getArticles(slug).then(articles => {
       this.setState({ articles: articles, isLoading: false });
     });
   }
 
-
   articlesbytopic = event => {
     //try to do a map and check article.topic
-    this.setState({selectedTopic: event.target})
+    this.setState({ selectedTopic: event.target });
   };
 
   //need to send client to a new page. that will be a list of articles from specific topic
@@ -32,9 +31,9 @@ class Topicscard extends React.Component {
     return (
       <li className="Topics">
         <nav>
-          <Link to={selectedArticle} onClick={this.articlesbytopic}>
-            {topic.slug.toUpperCase()} - {topic.description}{" "}
-          </Link>
+            <Link to={selectedArticle} onClick={this.articlesbytopic}>
+              {topic.slug.toUpperCase()} - {topic.description}{" "}
+            </Link>
         </nav>
         <div className="router">
           <Router>

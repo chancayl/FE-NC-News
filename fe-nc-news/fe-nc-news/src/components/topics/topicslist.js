@@ -21,17 +21,17 @@ class Topicslist extends React.Component {
 
     return (
       <div className="Topicslist">
+        <h2>Welcome to NC latest News!</h2>
         <p>
           Welcome to NC-News. We provide the folowing article Topics. To see
           articles, please select one of the following topics
         </p>
         <> {isLoading && <p> Loading... </p>}</>
-
-        <h3>
+        <li>
           {topics.map(topic => {
-            return (<Topicscard key={topic.slug} topic={topic} />);
+            return <Topicscard key={topic.slug} topic={topic} />;
           })}
-        </h3>
+        </li>
       </div>
     );
   }
