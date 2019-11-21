@@ -49,7 +49,7 @@ class App extends Component {
         </div>
         <>
           <Router>
-            <Topicslist path="/topics" user={this.state.user} />
+            <Topicslist path="/" user={this.state.user} />
             <Articleslist
               path="/articles/:topics_slug"
               user={this.state.user}

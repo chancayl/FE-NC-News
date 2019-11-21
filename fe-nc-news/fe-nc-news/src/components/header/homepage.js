@@ -4,7 +4,7 @@ import { Link } from "@reach/router";
 function Homepage() {
   return (
     <nav className="App-hompage">
-      <Link to="/topics">
+      <Link to="/">
         {" "}
         <button className="homebutton">
           {" "}
