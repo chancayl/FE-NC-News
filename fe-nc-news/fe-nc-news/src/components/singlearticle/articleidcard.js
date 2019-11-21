@@ -22,6 +22,7 @@ function ArticlebyId(props) {
       <div>
         <p>Author: {author}</p>
         <p>Topic: {topic.toUpperCase()}</p>
+  <p>Created at {new Date(created_at).toString()}</p>
       </div>
       <p className="Selectedsinglearticle">Article: {body}</p>
       <p>Total votes: {votes}</p>

@@ -1,0 +1,66 @@
+.Userselecter {
+    display: block;
+    color: black;
+    /* font-weight: bold; */
+    font-family: Quicksand;
+    font-size: 18px;
+    /* margin: 1%; */
+    margin-top: 1%;
+  }
+  
+  .Userselecter select {
+    box-sizing: border-box;
+    width: 15%;
+    font-weight: 200;
+    max-width: 15%;
+    text-align: center;
+    font-weight: 200;
+    color: rgb(43, 33, 33);
+    line-height: 0.8;
+    border: 1px solid #aaa;
+    border-radius: 0.3em;
+  }
+  
+  .ArticlesbyTopic {
+    display: block;
+    color: black;
+    /* font-weight: bold; */
+    font-family: Quicksand;
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .ArticlesbyTopic select {
+    box-sizing: border-box;
+    width: 15%;
+    font-weight: 200;
+    max-width: 15%;
+    text-align: center;
+    font-weight: 200;
+    color: rgb(43, 33, 33);
+    line-height: 0.8;
+    border: 1px solid #aaa;
+    border-radius: 0.3em;
+  }
+  
+  .SortedArticles {
+    display: block;
+    color: black;
+    /* font-weight: bold; */
+    font-family: Quicksand;
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .SortedArticles select {
+    box-sizing: border-box;
+    width: 20%;
+    font-weight: 200;
+    max-width: 30%;
+    text-align: center;
+    font-weight: 200;
+    color: rgb(43, 33, 33);
+    line-height: 0.8;
+    border: 1px solid #aaa;
+    border-radius: 0.3em;
+  }

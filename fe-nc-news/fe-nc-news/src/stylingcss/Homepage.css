@@ -1,0 +1,56 @@
+.App-homepage {
+  margin: 0;
+}
+.App-hompage ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.App-hompage .homebutton {
+  --c: #833939;
+  opacity: 0.9;
+  color: var(--c);
+  font-size: 13px;
+  border: 0.3em solid var(--c);
+  border-radius: 0.5em;
+  width: 8em;
+  height: 3em;
+  font-weight: bold;
+  font-family: Quicksand;
+  background-color: white;
+  letter-spacing: 0.1em;
+  line-height: 2em;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: 0.5s;
+  margin: 0.5em;
+}
+
+.App-hompage .homebutton span {
+  position: absolute;
+  width: 12em;
+  height: 3em;
+  text-align: center;
+  background-color: #833939;
+  transform: translateY(150%);
+  left: calc((var(--n) - 1) * 5%);
+  transition: 0.5s;
+  transition-delay: calc((var(--n) - 1) * 0.1s);
+  z-index: -1;
+}
+
+.App-hompage .homebutton:hover {
+  color: black;
+}
+
+.App-hompage .homebutton:hover span {
+  transform: translateY(0) scale(2);
+}
+
+.App-hompage .homebutton span:nth-child(1) {
+  --n: 1;
+}
+
+

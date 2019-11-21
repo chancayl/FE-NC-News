@@ -15,7 +15,7 @@ function Articlescard(props) {
 
   return (
     <>
-      <div className="Article">
+      <ul className="Article">
         {topic === selectedTopic ? (
           <nav>
             <Link to={selectedArticleid}>
@@ -34,7 +34,7 @@ function Articlescard(props) {
             <Singlearticle path={selectedArticleid} />
           </Router>
         </div>
-      </div>
+      </ul>
     </>
   );
 }

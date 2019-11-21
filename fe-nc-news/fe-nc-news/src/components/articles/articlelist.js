@@ -1,34 +1,57 @@
 import React from "react";
+import Errors from "../Errorshower";
+import Articlescard from "./articlescard";
 
 import * as api from "../../api";
-import Articlescard from "./articlescard";
 
 class Articleslist extends React.Component {
   state = {
     articles: [],
     isLoading: true,
-    topic: "all",
-    sort_by: "comment_count"
+    topics_slug: "all",
+    sort_by: "",
+    error: null
   };
 
   componentDidMount() {
     const { topics_slug } = this.props;
-    api.getArticles(topics_slug).then(articles => {
-      if (this.props.topics_slug === "all") {
-        this.setState({ articles: articles, isLoading: false, topic: "all" });
-      } else {
-        this.setState({
-          articles: articles,
-          isLoading: false,
-          topic: topics_slug,
-          sort_by: "comment_count"
+    if (/[1-9]/.test(topics_slug)) {
+      this.setState({
+        error: { status: 400, msg: `400 Invalid request` },
+        isLoading: false
+      });
+    } else if (
+      topics_slug !== "all" &&
+      topics_slug !== "football" &&
+      topics_slug !== "cooking" &&
+      topics_slug !== "code"
+    ) {
+      this.setState({
+        error: { status: 404, msg: `404 Request not found` },
+        isLoading: false
+      });
+    } else {
+      api
+        .getArticles(topics_slug)
+        .then(articles => {
+          this.setState({
+            articles: articles,
+            isLoading: false,
+            topics_slug: topics_slug,
+            sort_by: "comment_count"
+          });
+        })
+        .catch(error => {
+          this.setState({
+            error: { status: 404, msg: `404 Request not found` },
+            isLoading: false
+          });
         });
-      }
-    });
+    }
   }
   handleChange = event => {
     event.preventDefault();
-    this.setState({ topic: event.target.value });
+    this.setState({ topics_slug: event.target.value });
   };
 
   handleSortby = event => {
@@ -37,53 +60,64 @@ class Articleslist extends React.Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (
-      prevState.topic !== this.state.topic ||
-      prevState.sort_by !== this.state.sort_by
-    ) {
-      const { topic, sort_by } = this.state;
-      api.getArticles(topic, sort_by).then(articles => {
-        this.setState({
-          articles: articles,
-          isLoading: false,
-          topic: this.state.topic,
-          sort_by: this.state.sort_by
+    if (prevState.sort_by !== this.state.sort_by) {
+      const { topics_slug, sort_by } = this.state;
+      api
+        .getArticles(topics_slug, sort_by)
+        .then(articles => {
+          this.setState({
+            articles: articles,
+            isLoading: false
+          });
+        })
+        .catch(error => {
+          this.setState({
+            error: { status: 404, msg: `404 Not found` },
+            isLoading: false
+          });
         });
-      });
     }
   }
 
   render() {
-    const { articles, isLoading } = this.state;
+    const { articles, isLoading, error } = this.state;
+    if (error) {
+      return <Errors error={error} />;
+    }
     return (
       <div className="Topicslist">
         <br></br>
-        <label className="ArticlesbyTopic">
-          Search by Topic:{" "}
-          <select value={this.state.topic} onChange={this.handleChange}>
-            <option value="all">All</option>
-            <option value="football">Football</option>
-            <option value="coding">Coding</option>
-            <option value="cooking">Cooking</option>
-          </select>
-        </label>
+        <div className="ArticlesbyTopic">
+          <label>
+            Search by Topic:{" "}
+            <select value={this.state.topics_slug} onChange={this.handleChange}>
+              <option value="all">All</option>
+              <option value="football">Football</option>
+              <option value="coding">Coding</option>
+              <option value="cooking">Cooking</option>
+            </select>
+          </label>
+        </div>
         <br></br>
-        <label className="SortedArticles">
-          Sort by:{" "}
-          <select value={this.state.sort_by} onChange={this.handleSortby}>
-            <option value="comment_count">Number of comments</option>
-            <option value="created_at"> Date created </option>
-            <option value="votes">Votes</option>
-          </select>
-        </label>
+        <div className="SortedArticles">
+          <label>
+            Sort by:{" "}
+            <select value={this.state.sort_by} onChange={this.handleSortby}>
+              <option value="comment_count">Number of comments</option>
+              <option value="created_at"> Date created </option>
+              <option value="votes">Votes</option>
+            </select>
+          </label>
+        </div>
         <> {isLoading && <p> Loading... </p>}</>
+
         <h3>
           {articles.map(article => {
             return (
               <Articlescard
                 key={article.article_id}
                 article={article}
-                selectedTopic={this.state.topic}
+                selectedTopic={this.state.topics_slug}
               />
             );
           })}
