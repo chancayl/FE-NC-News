@@ -11,7 +11,7 @@
   --c: #833939;
   opacity: 0.9;
   color: var(--c);
-  font-size: 13px;
+  font-size: 20px;
   border: 0.3em solid var(--c);
   border-radius: 0.5em;
   width: 8em;
@@ -25,7 +25,7 @@
   overflow: hidden;
   z-index: 1;
   transition: 0.5s;
-  margin: 0.5em;
+  margin: 1em;
 }
 
 .App-hompage .homebutton span {
@@ -53,4 +53,21 @@
   --n: 1;
 }
 
+.Homepagetext h2 {
+  color: black;
+  font-family: "Quicksand";
+  font-size: 20px;
+  margin-top: 2%;
+}
 
+.Homepagetext p {
+  color: black;
+  font-family: "Quicksand";
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.Homepagetext img{
+  width: 80px;
+  height: 80px;
+}

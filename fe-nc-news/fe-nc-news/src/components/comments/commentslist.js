@@ -12,7 +12,8 @@ class Commentslist extends Component {
   state = {
     comments: [],
     isLoading: true,
-    error: null
+    error: null,
+    deletededMsg: ``
   };
 
   componentDidMount() {
@@ -40,21 +41,8 @@ class Commentslist extends Component {
     );
   }
 
-  postComment = (body, user) => {
-    const { article_id } = this.props;
-    api.postaComment(article_id, { body, user }).then(comment => {
-      this.setState(currentState => {
-        return {
-          comments: [comment, ...currentState.comments]
-        };
-      });
-    }).catch(error => {
-      this.setState({error: {status: 500, msg: `Your comment has not been posted due a server issue. Please, try again later`} })
-    });
-  };
-
   render() {
-    const { isLoading, comments, error } = this.state;
+    const { isLoading, comments, error, deletededMsg } = this.state;
     const { article_id, user } = this.props;
 
     if (isLoading) {
@@ -66,9 +54,10 @@ class Commentslist extends Component {
         <div className="Commentslist">
           <br></br>
           <>
-            <Link to={`/articles/article/${article_id}`}>
+            <Link to={`/articles/article/${article_id}`} className="back">
               Go back to article
             </Link>
+          <br></br>
           </>
           <PostComment postComment={this.postComment} user={user} />
           {comments.map(comment => {
@@ -78,12 +67,15 @@ class Commentslist extends Component {
                 comment={comment}
                 article_id={this.props.article_id}
                 user={user}
+                deletededMsg={deletededMsg}
+                deleteComment={this.deleteComment}
+                comment_id={comment.comment_id}
               />
             );
           })}
           <br></br>
           <>
-            <Link to={`/articles/article/${article_id}`}>
+            <Link to={`/articles/article/${article_id}`} className="back">
               Go back to article
             </Link>
             <Router>
@@ -94,6 +86,44 @@ class Commentslist extends Component {
       );
     }
   }
+  deleteComment = comment_id => {
+    api
+      .deleteComment(comment_id)
+      .then(() => {
+        this.setState({ deletededMsg: `Comment has been deleted` });
+      })
+      .catch(error => {
+        this.setState({
+          error: {
+            status: 500,
+            msg: `Your comment has not been deleted due a server issue. Please, try again later`
+          },
+          comments: []
+        });
+      });
+  };
+
+  postComment = (body, user) => {
+    const { article_id } = this.props;
+    api
+      .postaComment(article_id, { body, user })
+      .then(comment => {
+        this.setState(currentState => {
+          return {
+            comments: [comment, ...currentState.comments]
+          };
+        });
+      })
+      .catch(error => {
+        this.setState({
+          error: {
+            status: 500,
+            msg: `Your comment has not been posted due a server issue. Please, try again later`
+          },
+          comments: []
+        });
+      });
+  };
 }
 
 export default Commentslist;

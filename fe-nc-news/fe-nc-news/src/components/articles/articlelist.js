@@ -9,7 +9,7 @@ class Articleslist extends React.Component {
     articles: [],
     isLoading: true,
     topics_slug: "all",
-    sort_by: "",
+    sort_by: "comment_count",
     error: null
   };
 
@@ -37,8 +37,7 @@ class Articleslist extends React.Component {
           this.setState({
             articles: articles,
             isLoading: false,
-            topics_slug: topics_slug,
-            sort_by: "comment_count"
+            topics_slug: topics_slug
           });
         })
         .catch(error => {

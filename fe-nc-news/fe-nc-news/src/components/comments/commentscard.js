@@ -1,24 +1,19 @@
 import React, { Component } from "react";
 import * as api from "../../api";
-import Errors from "../Errorshower";
 
 class Commentscard extends Component {
   state = {
     comment: [],
     haveVoted: false,
-    stateVotes: 0,
-    deletededMsg: ``,
-    error: null
+    stateVotes: 0
   };
 
   render() {
     const { body, author, votes, created_at } = this.props.comment;
-    const { user } = this.props;
-    const { stateVotes, deletededMsg, error } = this.state;
+    const { user, deletededMsg } = this.props;
+    const { stateVotes } = this.state;
     const date = new Date(created_at).toString();
-    if (error) {
-      return <Errors error={error} />;
-    }
+
     return (
       <>
         <p>User: {author}</p>
@@ -29,28 +24,16 @@ class Commentscard extends Component {
           Vote for comment
         </button>
         {author === user && (
-          <button onClick={this.deleteComment}>Delete comment</button>
+          <button onClick={this.handledelete}>Delete comment</button>
         )}
         {deletededMsg && <p className="Deletedcomment">{deletededMsg}</p>}
       </>
     );
   }
-
-  deleteComment = event => {
-    const { comment_id } = this.props.comment;
-    api
-      .deleteComment(comment_id)
-      .then(() => {
-        this.setState({ deletededMsg: `Comment has been deleted` });
-      })
-      .catch(error => {
-        this.setState({
-          error: {
-            status: 500,
-            msg: `Your comment has not been deleted due a server issue. Please, try again later`
-          }
-        });
-      });
+  handledelete = event => {
+    event.preventDefault();
+    const { comment_id, deleteComment } = this.props;
+    deleteComment(comment_id);
   };
 
   voteComment = event => {

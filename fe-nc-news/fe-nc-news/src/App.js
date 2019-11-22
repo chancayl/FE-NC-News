@@ -4,10 +4,12 @@ import "./App.css";
 import "./stylingcss/Homepage.css";
 import "./stylingcss/select.css";
 import "./stylingcss/Topicslist.css";
+import "./stylingcss/Articleslist.css";
 
 import * as api from "./api";
 import Header from "./components/header/header";
-import Homepage from "./components/header/homepage";
+import Homepage from "./components/header/Homepage";
+import Menu from "./components/header/barmenu";
 import Topicslist from "./components/topics/topicslist";
 import Articleslist from "./components/articles/articlelist";
 import Singlearticle from "./components/singlearticle/articleid";
@@ -25,45 +27,34 @@ class App extends Component {
   };
 
   render() {
-    const { error } = this.state;
+    const { error, user, userinfo } = this.state;
     return (
       <main className="App">
         <header className="App-header" className="container">
           <Header />
         </header>
         <main>
-          <Homepage user={this.state.user} />
+          <Menu user={user} handleChange={this.handleChange} />
         </main>
-        <br></br>
-        <div className="Userselecter">
-          <label>
-            Change user:{" "}
-            <select value={this.state.user} onChange={this.handleChange}>
-              <option value="jessjelly">jessjelly</option>
-              <option value="tickle122">tickle122</option>
-              <option value="cooljmessy">cooljmessy</option>
-              <option value="happyamy2016">happyamy2016</option>
-              <option value="grumpy19">grumpy19</option>
-            </select>
-          </label>
-        </div>
+
         <>
           <Router>
-            <Topicslist path="/" user={this.state.user} />
+            <Homepage path="/" user={user} userinfo={userinfo} />
+            <Topicslist path="/topics" user={user} />
             <Articleslist
               path="/articles/:topics_slug"
-              user={this.state.user}
-              userinfo={this.state.user}
+              user={user}
+              userinfo={userinfo}
             />
             <Singlearticle
               path="/articles/article/:article_id"
-              user={this.state.user}
-              userinfo={this.state.user}
+              user={user}
+              userinfo={userinfo}
             />
             <Commentslist
               path="/articles/:article_id/comments"
-              user={this.state.user}
-              userinfo={this.state.user}
+              user={user}
+              userinfo={userinfo}
             />
             <Errors default error={error} />
           </Router>
@@ -83,6 +74,18 @@ class App extends Component {
         this.setState({ error: error, isLoading: false });
       });
   };
+
+  componentDidMount() {
+    const username = this.state.user;
+    api
+      .getUser(username)
+      .then(user => {
+        this.setState({ user: username, userinfo: { user } });
+      })
+      .catch(error => {
+        this.setState({ error: error, isLoading: false });
+      });
+  }
 }
 
 export default App;

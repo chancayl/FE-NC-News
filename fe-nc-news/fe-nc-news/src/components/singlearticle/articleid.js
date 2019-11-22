@@ -83,7 +83,9 @@ class Singlearticle extends React.Component {
   }
 
   render() {
-    const { isLoading, article, error } = this.state;
+    const user = this.props.userinfo ? this.props.userinfo.user : null;
+    const { isLoading, article, error, comment_count, stateVotes } = this.state;
+
     if (isLoading) {
       return <p>Loading...</p>;
     } else if (error) {
@@ -96,12 +98,12 @@ class Singlearticle extends React.Component {
             key={article.article_id}
             article={article}
             voteArticle={this.voteArticle}
-            votes={this.state.stateVotes}
-            comment_count={this.state.comment_count}
+            votes={stateVotes}
+            comment_count={comment_count}
+            userinfo={this.props.userinfo}
           />
-          <Link to={`/articles/${article.topic}`}>
-            Go back to article
-          </Link>
+
+          <Link to={`/articles/${article.topic}`} className="back">Go back to article</Link>
           <Router>
             <Articleslist path={`/articles/${article.topic}`} />
           </Router>

@@ -12,9 +12,9 @@ function Topicscard(props) {
   const selectedArticle = `/articles/${topic.slug}`;
   return (
     <>
-      <nav>
+      <nav className="Topic">
         <Link to={selectedArticle}>
-          <li className={topic.slug}>
+          <li>
             {topic.slug.toUpperCase()} - {topic.description}{" "}
           </li>
         </Link>

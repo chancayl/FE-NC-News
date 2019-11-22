@@ -1,5 +1,5 @@
 import React from "react";
-import notfound from "../stylingpics/notfound.jpg";
+import notfound from "../stylingpics/notfound.png";
 import error400Badrequest from "../stylingpics/error400Badrequest.jpg";
 import error500 from "../stylingpics/error500.png";
 

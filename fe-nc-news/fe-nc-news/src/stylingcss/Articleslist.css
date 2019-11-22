@@ -1,0 +1,73 @@
+.Article nav li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  padding: 5px;
+  border: 5px solid #833939;
+  font-family: "Quicksand";
+  color: black;
+  padding: 5% 5% 5% 5%;
+  border-radius: 0.9em;
+}
+
+.Singlearticle img {
+  width: 100px;
+  height: 100px;
+}
+
+.Singlearticle .articlebutton {
+  --c: #833939;
+  opacity: 0.9;
+  color: var(--c);
+  font-size: 20px;
+  border: 0.3em solid var(--c);
+  border-radius: 0.5em;
+  width: 7em;
+  height: 2em;
+  font-weight: bold;
+  font-family: Quicksand;
+  background-color: white;
+  letter-spacing: 0.1em;
+  /* text-size-adjust: 1px; */
+  /* line-height: 1em; */
+  position: relative;
+  overflow: hidden;
+  transition: 0.5s;
+  margin: 1em;
+}
+
+.Singlearticle .articlebutton span {
+  position: absolute;
+  width: 12em;
+  height: 3em;
+  text-align: center;
+  background-color: #833939;
+  transform: translateY(150%);
+  left: calc((var(--n) - 1) * 5%);
+  transition: 0.5s;
+  transition-delay: calc((var(--n) - 1) * 0.1s);
+  z-index: -1;
+}
+
+.Singlearticle .articlebutton:hover {
+  color: black;
+}
+
+.Singlearticle .articlebutton:hover span {
+  transform: translateY(0) scale(2);
+}
+
+.Singlearticle .articlebutton span:nth-child(1) {
+  --n: 1;
+}
+
+.back {
+  color: #833939;
+  font-size: 20px;
+  margin: auto;
+}

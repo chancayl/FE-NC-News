@@ -1,10 +1,8 @@
 .Userselecter {
     display: block;
     color: black;
-    /* font-weight: bold; */
     font-family: Quicksand;
-    font-size: 18px;
-    /* margin: 1%; */
+    font-size: 25px;
     margin-top: 1%;
   }
   
@@ -12,7 +10,7 @@
     box-sizing: border-box;
     width: 15%;
     font-weight: 200;
-    max-width: 15%;
+    max-width: 50%;
     text-align: center;
     font-weight: 200;
     color: rgb(43, 33, 33);
@@ -24,9 +22,8 @@
   .ArticlesbyTopic {
     display: block;
     color: black;
-    /* font-weight: bold; */
     font-family: Quicksand;
-    font-size: 18px;
+    font-size: 25px;
     margin: 0;
   }
   
@@ -46,9 +43,8 @@
   .SortedArticles {
     display: block;
     color: black;
-    /* font-weight: bold; */
     font-family: Quicksand;
-    font-size: 18px;
+    font-size: 25px;
     margin: 0;
   }
   

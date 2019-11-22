@@ -16,32 +16,43 @@ function ArticlebyId(props) {
   } = props.article;
   const { voteArticle, comment_count } = props;
   const commentsLink = `/articles/${article_id}/comments`;
+
   return (
-    <>
+    <div className="Singlearticle">
       <h4>{title}</h4>
-      <div>
-        <p>Author: {author}</p>
+      <>
+        <p>Author: {author} </p>
         <p>Topic: {topic.toUpperCase()}</p>
-  <p>Created at {new Date(created_at).toString()}</p>
-      </div>
+        <p>Created at {new Date(created_at).toString()}</p>
+      </>
       <p className="Selectedsinglearticle">Article: {body}</p>
-      <p>Total votes: {votes}</p>
-      <div className="Votearticle">
-        <button onClick={voteArticle}>Vote for article</button>
+      <p>Total article's votes: {votes} </p>
+      <>
+        <button onClick={voteArticle} className="articlebutton">
+          <span></span>
+          Vote
+          <span></span>
+          <span></span>
+        </button>
         <br></br>
-      </div>
-      <div className="Seecomments">
+      </>
+      <>
         <p>Total comments: {comment_count}</p>
         <Link to={commentsLink}>
-          <button>See comments</button>
+          <button className="articlebutton">
+            <span></span>
+            Comments 
+            <span></span>
+            <span></span>
+          </button>
         </Link>
-        <div className="SingleArticleRouter">
+        <>
           <Router>
             <Commentslist path={commentsLink} />
           </Router>
-        </div>
-      </div>
-    </>
+        </>
+      </>
+    </div>
   );
 }
 
