@@ -24,7 +24,7 @@ class Articleslist extends React.Component {
       topics_slug !== "all" &&
       topics_slug !== "football" &&
       topics_slug !== "cooking" &&
-      topics_slug !== "code"
+      topics_slug !== "coding"
     ) {
       this.setState({
         error: { status: 404, msg: `404 Request not found` },
