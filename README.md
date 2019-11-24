@@ -2,17 +2,17 @@
 
 FE-NC-News is a news aggregation site built in React making API calls from the back end server. It allows users to view web content and enter in discussion by adding and deleteing comments, and also voting on the content.
 
-### NC News Front-End:
+NC News Front-End:
 
 Deployed on Netlify: https://5ddac55b3220231c4584ca89--chancayl-ncnews.netlify.com/
 Github Link: https://github.com/chancayl/FE-NC-News
 
-### NC News Back-End:
+NC News Back-End:
 
 Hosted on Heroku: https://my-nc-first-app.herokuapp.com/api/
 Github Link: https://github.com/chancayl/BE-NC-News
 
-### Dependencies:
+Dependencies:
 
 "@reach/router": "^1.2.1",
 "axios": "^0.19.0",
