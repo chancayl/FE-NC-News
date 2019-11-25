@@ -2,15 +2,15 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 40%;
   height: auto;
-  min-width: auto;
-  margin-left: auto;
-  margin-right: auto;
+  min-width: 15em;
+  max-width: 80em;
+  margin-left: 25%;
+  margin-right: 30%;
   margin-top: 10px;
   border: 0.5px solid #833939;
   font-family: "Quicksand";
-  font-size: 15px;
+  font-size: 100%;
   color: black;
   padding: 5px;
   border-radius: 0.9em;
@@ -42,10 +42,13 @@
 
 .commentadder button {
   border: 1.5px solid #833939;
-  width: 10%;
+  width: auto;
   height: auto;
+  padding: 0.3%;
   background-color: white;
   font-family: "Quicksand";
+  font-size: 90%;
+  border-radius: 0.3em;
 }
 
 .commentadder p {
