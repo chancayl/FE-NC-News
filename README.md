@@ -6,13 +6,13 @@ The articles can be seen by three different topics (coding, football and cooking
 
 NC News Front-End:
 
-Deployed on Netlify: https://5ddac55b3220231c4584ca89--chancayl-ncnews.netlify.com/
-Github Link: https://github.com/chancayl/FE-NC-News
+- Deployed on Netlify: https://5ddac55b3220231c4584ca89--chancayl-ncnews.netlify.com/
+- Github Link: https://github.com/chancayl/FE-NC-News
 
 NC News Back-End:
 
-Hosted on Heroku: https://my-nc-first-app.herokuapp.com/api/
-Github Link: https://github.com/chancayl/BE-NC-News
+- Hosted on Heroku: https://my-nc-first-app.herokuapp.com/api/
+- Github Link: https://github.com/chancayl/BE-NC-News
 
 Dependencies:
 
