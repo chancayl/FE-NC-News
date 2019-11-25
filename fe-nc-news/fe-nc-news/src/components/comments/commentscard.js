@@ -15,19 +15,21 @@ class Commentscard extends Component {
     const date = new Date(created_at).toString();
 
     return (
-      <>
+      <div className="Comments">
         <p>User: {author}</p>
         <p>Comment: {body}</p>
         <p>Created at: {date}</p>
         <p>Total votes: {stateVotes + votes}</p>
-        <button className="Votecomment" onClick={this.voteComment}>
-          Vote for comment
+        <button className="Commentbutton" onClick={this.voteComment}>
+          Vote
         </button>
         {author === user && (
-          <button onClick={this.handledelete}>Delete comment</button>
+          <button onClick={this.handledelete} className="Commentbutton">
+            Delete
+          </button>
         )}
         {deletededMsg && <p className="Deletedcomment">{deletededMsg}</p>}
-      </>
+      </div>
     );
   }
   handledelete = event => {

@@ -1,0 +1,37 @@
+.Comments {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  padding: 5px;
+  border: 0.5px solid #833939;
+  font-family: "Quicksand";
+  font-size: auto;
+  color: black;
+  padding: 0.9%;
+  border-radius: 0.9em;
+}
+
+.Commentbutton {
+  text-align: center;
+  --c: #833939;
+  font-size: 15px;
+  border: 0.1em solid var(--c);
+  border-radius: 0.5em;
+  width: 20%;
+  height: auto;
+  font-weight: bold;
+  font-family: Quicksand;
+  background-color: white;
+  letter-spacing: 0.1em;
+  transition: 0.5s;
+  margin: 1em;
+}
+
+.Commentbutton {
+  color: black;
+}

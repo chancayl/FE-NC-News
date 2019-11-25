@@ -11,4 +11,10 @@
   font-size: 80px;
 }
 
-
+.Errors img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin-top: 3%;
+  margin: 0%;
+}

@@ -5,6 +5,7 @@ import "./stylingcss/Homepage.css";
 import "./stylingcss/select.css";
 import "./stylingcss/Topicslist.css";
 import "./stylingcss/Articleslist.css";
+import "./stylingcss/Comments.css";
 
 import * as api from "./api";
 import Header from "./components/header/header";

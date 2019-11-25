@@ -51,7 +51,7 @@ class Commentslist extends Component {
       return <Errors error={error} />;
     } else {
       return (
-        <div className="Commentslist">
+        <>
           <br></br>
           <>
             <Link to={`/articles/article/${article_id}`} className="back">
@@ -82,7 +82,7 @@ class Commentslist extends Component {
               <Singlearticle path={`/articles/article/${article_id}`} />
             </Router>
           </>
-        </div>
+        </>
       );
     }
   }

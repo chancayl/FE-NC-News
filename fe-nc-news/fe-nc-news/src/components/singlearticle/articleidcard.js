@@ -25,7 +25,7 @@ function ArticlebyId(props) {
         <p>Topic: {topic.toUpperCase()}</p>
         <p>Created at {new Date(created_at).toString()}</p>
       </>
-      <p className="Selectedsinglearticle">Article: {body}</p>
+      <p className="Selectedsinglearticle"> {body}</p>
       <p>Total article's votes: {votes} </p>
       <>
         <button onClick={voteArticle} className="articlebutton">
@@ -41,7 +41,7 @@ function ArticlebyId(props) {
         <Link to={commentsLink}>
           <button className="articlebutton">
             <span></span>
-            Comments 
+            Comments
             <span></span>
             <span></span>
           </button>
