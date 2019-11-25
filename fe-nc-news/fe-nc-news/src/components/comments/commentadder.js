@@ -7,7 +7,7 @@ class PostComment extends Component {
   render() {
     const { body } = this.state;
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit} className="commentadder">
         <Form.Control
           name="body"
           value={body}

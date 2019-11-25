@@ -42,7 +42,7 @@ class Articleslist extends React.Component {
         })
         .catch(error => {
           this.setState({
-            error: { status: 404, msg: `404 Request not found` },
+            error: { status: 500, msg: `Server issue` },
             isLoading: false
           });
         });

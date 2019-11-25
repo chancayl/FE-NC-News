@@ -2,17 +2,17 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 40%;
   height: auto;
-  width: 30%;
+  min-width: auto;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
-  padding: 5px;
+  margin-top: 10px;
   border: 0.5px solid #833939;
   font-family: "Quicksand";
-  font-size: auto;
+  font-size: 13px;
   color: black;
-  padding: 0.9%;
+  padding: 5px;
   border-radius: 0.9em;
 }
 
@@ -22,16 +22,20 @@
   font-size: 15px;
   border: 0.1em solid var(--c);
   border-radius: 0.5em;
-  width: 20%;
+  width: auto;
   height: auto;
   font-weight: bold;
   font-family: Quicksand;
   background-color: white;
   letter-spacing: 0.1em;
-  transition: 0.5s;
-  margin: 1em;
+  margin: auto;
+  padding: auto;
 }
 
 .Commentbutton {
   color: black;
+}
+
+.commentadder {
+  margin: 5%;
 }
