@@ -7,7 +7,7 @@ The articles can be seen by three different topics (coding, football and cooking
 NC News Front-End:
 
 - Deployed on Netlify: https://chancayl-ncnews.netlify.com/
-- Github Link: https://github.com/chancayl/FE-NC-News
+- Github  Link: https://github.com/chancayl/FE-NC-News
 
 NC News Back-End:
 
