@@ -8,6 +8,7 @@ class PostComment extends Component {
     const { body } = this.state;
     return (
       <Form onSubmit={this.handleSubmit} className="commentadder">
+        <p>Comment must have a minimum length of 10 characters</p>
         <Form.Control
           name="body"
           value={body}
@@ -16,9 +17,10 @@ class PostComment extends Component {
           rows="5"
           colunm="10"
           placeholder="Add comment"
+          className="Commentbox"
         />
-        <Button variant="primary" type="submit" disabled={body.length <10}>
-          Post
+        <Button variant="primary" type="submit" disabled={body.length < 10}>
+          POST
         </Button>
       </Form>
     );
