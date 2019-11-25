@@ -36,10 +36,9 @@ The information below will allow you to get this application up and running.
 
 - Installation:
 
-Clone this repository on to your local machine git clone https://github.com/chancayl/FE-NC-News;
-
-Navigate into the repository;
-cd fe-nc-news;
-Open in your code editor (code .);
-Install dependicies (npm install);
-Start the application to run on your default browser (npm start);
+* Clone this repository on to your local machine git clone https://github.com/chancayl/FE-NC-News;
+* Navigate into the repository;
+* cd fe-nc-news;
+* Open in your code editor (code .);
+* Install dependicies (npm install);
+* Start the application to run on your default browser (npm start);
